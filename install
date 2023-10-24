@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+cp ./vendor/ilnarkkk/codefix/.php-cs-fixer.php ./
+cp ./vendor/ilnarkkk/codefix/pre-commit.sample ./.git/hooks/pre-commit
