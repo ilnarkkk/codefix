@@ -1,0 +1,25 @@
+{
+  "name": "ilnarkkk/codefix",
+  "type": "library",
+  "description": "Проверка стилей кода",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "I am",
+      "email": "ololo@mail.ru"
+    }
+  ],
+  "require": {
+    "php": "^8.1",
+    "friendsofphp/php-cs-fixer": "^3.35"
+  },
+  "scripts": {
+    "post-update-cmd": "cp pre-commit.sample ./.git/hooks/pre-commit",
+    "post-package-install": "cp pre-commit.sample ./.git/hooks/pre-commit",
+    "post-install-cmd": "cp pre-commit.sample ./.git/hooks/pre-commit"
+  },
+  "bin": ["vendor/bin/php-cs-fixer"],
+  "config": {
+    "sort-packages": true
+  }
+}
