@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+if [ ! -f ./.php-cs-fixer.php ]; then
+    cp ./vendor/ilnarkkk/codefix/.php-cs-fixer.php ./
+fi
+
+cp ./vendor/ilnarkkk/codefix/pre-commit.sample ./.git/hooks/pre-commit
