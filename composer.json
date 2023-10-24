@@ -18,7 +18,7 @@
     "post-package-install": "cp pre-commit.sample ./.git/hooks/pre-commit",
     "post-install-cmd": "cp pre-commit.sample ./.git/hooks/pre-commit"
   },
-  "bin": ["vendor/bin/php-cs-fixer"],
+  "bin": ["vendor/bin/php-cs-fixer", "fix_branch_files", "fix_uncommited_files"],
   "config": {
     "sort-packages": true
   }
