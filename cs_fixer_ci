@@ -4,4 +4,4 @@ git fetch origin $CI_MERGE_REQUEST_TARGET_BRANCH_NAME
 FIRST_COMMIT_SHA=$(git cherry origin/$CI_MERGE_REQUEST_TARGET_BRANCH_NAME | head -n 1 | cut -c 3-)
 CHANGED_FILES=$(git diff --name-only --diff-filter=ACMRTUXB "${FIRST_COMMIT_SHA}"^.."${CI_COMMIT_SHA}")
 echo "${CHANGED_FILES}"
-./vendor/bin/php-cs-fixer fix -vvv --dry-run --config=.php-cs-fixer.php --show-progress=dots --using-cache=no $(printf -- '--path-mode=intersection\n--\n%s' "${CHANGED_FILES}")
+./vendor/bin/php-cs-fixer fix -vvv --dry-run --diff --format=gitlab --config=.php-cs-fixer.php --show-progress=dots --using-cache=no $(printf -- '--path-mode=intersection\n--\n%s' "${CHANGED_FILES}")
