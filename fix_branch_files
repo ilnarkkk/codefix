@@ -4,11 +4,8 @@
 #нужно чтобы определить весь диапазон коммитов ветки.
 #пример - sh fix_branch_files.sh master
 
-RED='\033[0;31m'
-NC='\033[0m'
-
 if [ -z "$1" ]; then
-  echo "${RED}Не указано имя ветки от которой отделилась твоя текущая рабочая ветка.${NC}"
+  echo "Не указано имя ветки от которой отделилась твоя текущая рабочая ветка."
   exit 1
 fi
 
@@ -19,7 +16,7 @@ if [ -n "${FIRST_COMMIT_SHA}" ]; then
   CHANGED_FILES=$(git diff --name-only --diff-filter=ACMRTUXB "${FIRST_COMMIT_SHA}"^..HEAD)
   echo "${CHANGED_FILES}"
 
-  ./vendor/bin/php-cs-fixer fix -vvv --config=.php-cs-fixer.php --show-progress=dots --using-cache=no $(printf -- '--path-mode=intersection\n--\n%s' "${CHANGED_FILES}")
+  ./vendor/bin/php-cs-fixer fix -vvv --config=.php-cs-fixer.php --show-progress=dots --using-cache=no $(printf -- '--path-mode=intersection -- %s' "${CHANGED_FILES}")
 else
-  echo "${RED}В ветке не найдены коммиты.${NC}"
+  echo "В ветке не найдены коммиты."
 fi

@@ -4,4 +4,6 @@ if [ ! -f ./.php-cs-fixer.php ]; then
     cp ./vendor/ilnarkkk/codefix/.php-cs-fixer.php ./
 fi
 
-cp ./vendor/ilnarkkk/codefix/pre-commit.sample ./.git/hooks/pre-commit
+if [ -d ./.git/hooks ] && [ ! -f ./.git/hooks/pre-commit ]; then
+  cp ./vendor/ilnarkkk/codefix/pre-commit.sample ./.git/hooks/pre-commit
+fi
